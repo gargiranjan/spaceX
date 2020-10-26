@@ -1,41 +1,33 @@
-<div class="padding-main" *ngIf="spaceXResponse">
+<div class="padding-main pading-0">
   <div>
     <div class="title">
       <h2>SpaceX Launch Programs</h2>
     </div>
 
-    <div class="content-box-style">
+  
+  </div>
+
+  <div class="display-content-row">
+    <div class="content-box-style filters-content">
       <div class="display-content">
-        <span>
-          filters
+        <span class="font-sizing filters-padding">
+          Filters
         </span>
-        <span class="center-align-items">
+        <span class="center-align-items font-sizing">
           Launch Year
         </span>
       </div>
       <hr>
 
       <div class="display-flex">
-        <div class="button-class">
-          <button class="btn-class">2006</button>
-        </div>
-
-        <div class="button-class">
-          <button class="btn-class">2007</button>
-        </div>
-
-        <div class="button-class">
-          <button class="btn-class">2008</button>
-        </div>
-
-        <div class="button-class">
-          <button class="btn-class">2009</button>
+        <div class="button-class" *ngFor="let year of launchYear">
+          <button class="btn-class font-size-btn" (click)="onClickYear(year, '', '')" [ngClass]="{'active-year': year === this.activeYear}">{{year}}</button>
         </div>
       </div>
 
       <div>
         <div class="width-100 center-align-items">
-          <span class="">
+          <span class="font-sizing">
             Successful Launch
           </span>
 
@@ -43,36 +35,35 @@
         <hr>
         <div class="display-flex">
           <div class="button-class">
-            <button class="btn-class">True</button>
+            <button class="btn-class font-size-btn" (click)="onClickYear('', 'true', '')" [ngClass]="{'active-year': 'true' === this.activeLaunch}">True</button>
           </div>
 
           <div class="button-class">
-            <button class="btn-class">False</button>
+            <button class="btn-class font-size-btn" (click)="onClickYear('', 'false', '')" [ngClass]="{'active-year': 'false' === this.activeLaunch}">False</button>
           </div>
         </div>
       </div>
 
       <div>
         <div class="width-100 center-align-items">
-          <span class="">
+          <span class="font-sizing">
             Successful Landing
           </span>
           <hr>
         </div>
         <div class="display-flex">
           <div class="button-class">
-            <button class="btn-class">True</button>
+            <button class="btn-class font-size-btn" (click)="onClickYear('', '', 'true')" [ngClass]="{'active-year': 'true' === this.activeLand}">True</button>
           </div>
 
           <div class="button-class">
-            <button class="btn-class">False</button>
+            <button class="btn-class font-size-btn" (click)="onClickYear('', '', 'false')" [ngClass]="{'active-year': 'false' === this.activeLand}">False</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div>
+<div class="response-content-class" *ngIf="spaceXResponse">
     <div class="content-box-style spacex-content-styles" *ngFor="let data of spaceXResponse">
       <div class="img-container">
         <img src={{data.links.mission_patch}}>
@@ -86,24 +77,25 @@
         </span>
         <ul>
           <li *ngFor="let msnId of data.mission_id">
-            <a href="data.links.video_link">{{msnId}}</a>
+            <a class="font-size-btn" href="data.links.video_link">{{msnId}}</a>
           </li>
         </ul>
       </div>
 
       <div>
-        <span class="font-sizing">Launch Year: </span><span class="color-blue"> {{data.launch_year}} </span>
+        <span class="font-sizing">Launch Year: </span><span class="color-blue font-size-btn"> {{data.launch_year}} </span>
 
       </div>
 
       <div>
-        <span class="font-sizing">Successful launch: </span><span class="color-blue"> {{data.launch_success}} </span>
+        <span class="font-sizing">Successful launch: </span><span class="color-blue font-size-btn"> {{data.launch_success}} </span>
 
       </div>
       <div>
-        <span class="font-sizing">Successful landing: </span><span class="color-blue">{{data.tbd}}</span>
+        <span class="font-sizing">Successful landing: </span><span class="color-blue font-size-btn">{{data.tbd}}</span>
 
       </div>
     </div>
+  </div>
   </div>
 </div>

@@ -10,9 +10,15 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  getAllData(): Observable<any> {
-    return this.http.get(`https://api.spaceXdata.com/v3/launches?limit=100`).pipe(map(res => {
-      return res;
-    }));
+  getData(year?, launch?, landing?): Observable<any> {
+    if(launch || landing || year) {
+      return this.http.get(`https://api.spaceXdata.com/v3/launches?limit=100&launch_success=${launch}&land_success=${landing}&launch_year=${year}`).pipe(map(res => {
+        return res;
+      }));
+    } else{
+      return this.http.get(`https://api.spaceXdata.com/v3/launches?limit=100`).pipe(map(res => {
+        return res;
+      }));
+}
   }
 }

@@ -12,9 +12,18 @@ a {
 
 }
 
+.filters-padding {
+    padding-left: 13px;
+}
+
 .display-content {
     display: flex;
     flex-direction: column;
+}
+
+.display-content-row {
+    display: flex;
+    flex-direction: row;
 }
 
 .display-flex {
@@ -27,11 +36,11 @@ a {
 }
 
 .btn-class {
-    width: 50%;
     border-radius: 10px;
     border: 0;
     padding: 12px;
     background-color: #CDFE8C;
+    outline: none;
 }
 
 .center-align-items {
@@ -47,11 +56,14 @@ hr {
 }
 
 .spacex-content-styles {
-        margin-top: 20px;
-        padding: 5%;
-        display: flex;
-        flex-direction: column;
-    }
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    flex-wrap: wrap;
+    margin: 0 13px 13px;
+}
+
 img {
     height: 100%;
     width: 100%;
@@ -68,14 +80,78 @@ img {
     font-weight: bold;
 }
 
+.font-size-btn {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .color-blue {
     color: blue;
 }
 
+.active-year {
+    background-color: #87D629;
+}
+
+.filters-content {
+    width: 14%;
+    position: absolute;
+}
+
+.response-content-class {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 16%;
+    padding-top: 0 !important;
+}
+
+.pading-0 {
+    padding: 0 !important;
+}
+
+.button-class {
+    width: 50%;
+    text-align: center;
+}
+
 @media (max-width: 700px) {
-    .button-class {
-        width: 50%;
-        text-align: center;
+
+    .spacex-content-styles {
+        margin: 20px 0 0 0;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .display-content-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filters-content {
+        width: auto;
+        position: relative;
+    }
+
+    .response-content-class {
+        margin-left: 0;
     }
    
+}
+
+@media (max-width: 1024px) and (min-width: 700px){
+
+    .filters-content {
+        width: 20%;
+    }
+
+    .response-content-class {
+        margin-left: 22%;
+    }
+
+    .spacex-content-styles {
+        padding: 12px;
+        width: 15rem;
+    }
 }
